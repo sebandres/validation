@@ -4,10 +4,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-define(["require", "exports", "aurelia-binding", "aurelia-dependency-injection", "aurelia-templating", "./validation-controller", "aurelia-pal"], function (require, exports, aurelia_binding_1, aurelia_dependency_injection_1, aurelia_templating_1, validation_controller_1, aurelia_pal_1) {
+define(["require", "exports", "aurelia-binding", "aurelia-dependency-injection", "aurelia-templating"], function (require, exports, aurelia_binding_1, aurelia_dependency_injection_1, aurelia_templating_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var ValidationErrorsCustomAttribute = (function () {
+    var ValidationErrorsCustomAttribute = /** @class */ (function () {
         function ValidationErrorsCustomAttribute(boundaryElement, controllerAccessor) {
             this.boundaryElement = boundaryElement;
             this.controllerAccessor = controllerAccessor;
@@ -65,7 +65,6 @@ define(["require", "exports", "aurelia-binding", "aurelia-dependency-injection",
                 this.controller.removeRenderer(this);
             }
         };
-        ValidationErrorsCustomAttribute.inject = [aurelia_pal_1.DOM.Element, aurelia_dependency_injection_1.Lazy.of(validation_controller_1.ValidationController)];
         __decorate([
             aurelia_templating_1.bindable({ defaultBindingMode: aurelia_binding_1.bindingMode.oneWay })
         ], ValidationErrorsCustomAttribute.prototype, "controller", void 0);
@@ -73,7 +72,8 @@ define(["require", "exports", "aurelia-binding", "aurelia-dependency-injection",
             aurelia_templating_1.bindable({ primaryProperty: true, defaultBindingMode: aurelia_binding_1.bindingMode.twoWay })
         ], ValidationErrorsCustomAttribute.prototype, "errors", void 0);
         ValidationErrorsCustomAttribute = __decorate([
-            aurelia_templating_1.customAttribute('validation-errors')
+            aurelia_templating_1.customAttribute('validation-errors'),
+            aurelia_dependency_injection_1.autoinject
         ], ValidationErrorsCustomAttribute);
         return ValidationErrorsCustomAttribute;
     }());

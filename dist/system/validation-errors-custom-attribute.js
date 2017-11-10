@@ -1,4 +1,4 @@
-System.register(["aurelia-binding", "aurelia-dependency-injection", "aurelia-templating", "./validation-controller", "aurelia-pal"], function (exports_1, context_1) {
+System.register(["aurelia-binding", "aurelia-dependency-injection", "aurelia-templating"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["aurelia-binding", "aurelia-dependency-injection", "aurelia-tem
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var aurelia_binding_1, aurelia_dependency_injection_1, aurelia_templating_1, validation_controller_1, aurelia_pal_1, ValidationErrorsCustomAttribute;
+    var aurelia_binding_1, aurelia_dependency_injection_1, aurelia_templating_1, ValidationErrorsCustomAttribute;
     return {
         setters: [
             function (aurelia_binding_1_1) {
@@ -18,16 +18,10 @@ System.register(["aurelia-binding", "aurelia-dependency-injection", "aurelia-tem
             },
             function (aurelia_templating_1_1) {
                 aurelia_templating_1 = aurelia_templating_1_1;
-            },
-            function (validation_controller_1_1) {
-                validation_controller_1 = validation_controller_1_1;
-            },
-            function (aurelia_pal_1_1) {
-                aurelia_pal_1 = aurelia_pal_1_1;
             }
         ],
         execute: function () {
-            ValidationErrorsCustomAttribute = (function () {
+            ValidationErrorsCustomAttribute = /** @class */ (function () {
                 function ValidationErrorsCustomAttribute(boundaryElement, controllerAccessor) {
                     this.boundaryElement = boundaryElement;
                     this.controllerAccessor = controllerAccessor;
@@ -85,7 +79,6 @@ System.register(["aurelia-binding", "aurelia-dependency-injection", "aurelia-tem
                         this.controller.removeRenderer(this);
                     }
                 };
-                ValidationErrorsCustomAttribute.inject = [aurelia_pal_1.DOM.Element, aurelia_dependency_injection_1.Lazy.of(validation_controller_1.ValidationController)];
                 __decorate([
                     aurelia_templating_1.bindable({ defaultBindingMode: aurelia_binding_1.bindingMode.oneWay })
                 ], ValidationErrorsCustomAttribute.prototype, "controller", void 0);
@@ -93,7 +86,8 @@ System.register(["aurelia-binding", "aurelia-dependency-injection", "aurelia-tem
                     aurelia_templating_1.bindable({ primaryProperty: true, defaultBindingMode: aurelia_binding_1.bindingMode.twoWay })
                 ], ValidationErrorsCustomAttribute.prototype, "errors", void 0);
                 ValidationErrorsCustomAttribute = __decorate([
-                    aurelia_templating_1.customAttribute('validation-errors')
+                    aurelia_templating_1.customAttribute('validation-errors'),
+                    aurelia_dependency_injection_1.autoinject
                 ], ValidationErrorsCustomAttribute);
                 return ValidationErrorsCustomAttribute;
             }());

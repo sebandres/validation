@@ -1,4 +1,3 @@
-import { Lazy } from 'aurelia-dependency-injection';
 import { ValidationController } from './validation-controller';
 import { ValidateResult } from './validate-result';
 import { ValidationRenderer, RenderInstruction } from './validation-renderer';
@@ -9,10 +8,6 @@ export interface RenderedError {
 export declare class ValidationErrorsCustomAttribute implements ValidationRenderer {
     private boundaryElement;
     private controllerAccessor;
-    static inject: ({
-        new (): Element;
-        prototype: Element;
-    } | Lazy)[];
     controller: ValidationController | null;
     errors: RenderedError[];
     private errorsInternal;

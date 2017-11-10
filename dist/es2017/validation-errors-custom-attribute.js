@@ -5,10 +5,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { bindingMode } from 'aurelia-binding';
-import { Lazy } from 'aurelia-dependency-injection';
+import { autoinject } from 'aurelia-dependency-injection';
 import { customAttribute, bindable } from 'aurelia-templating';
-import { ValidationController } from './validation-controller';
-import { DOM } from 'aurelia-pal';
 let ValidationErrorsCustomAttribute = class ValidationErrorsCustomAttribute {
     constructor(boundaryElement, controllerAccessor) {
         this.boundaryElement = boundaryElement;
@@ -61,7 +59,6 @@ let ValidationErrorsCustomAttribute = class ValidationErrorsCustomAttribute {
         }
     }
 };
-ValidationErrorsCustomAttribute.inject = [DOM.Element, Lazy.of(ValidationController)];
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneWay })
 ], ValidationErrorsCustomAttribute.prototype, "controller", void 0);
@@ -69,6 +66,7 @@ __decorate([
     bindable({ primaryProperty: true, defaultBindingMode: bindingMode.twoWay })
 ], ValidationErrorsCustomAttribute.prototype, "errors", void 0);
 ValidationErrorsCustomAttribute = __decorate([
-    customAttribute('validation-errors')
+    customAttribute('validation-errors'),
+    autoinject
 ], ValidationErrorsCustomAttribute);
 export { ValidationErrorsCustomAttribute };
