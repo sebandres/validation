@@ -22,7 +22,7 @@ export class ValidationErrorsCustomAttribute implements ValidationRenderer {
 
   private errorsInternal: RenderedError[] = [];
 
-  constructor(private boundaryElement: Element, private controllerAccessor: () => ValidationController) {
+  constructor(private boundaryElement: Element, private controllerAccessor: ValidationController) {
   }
 
   public sort() {
@@ -63,7 +63,7 @@ export class ValidationErrorsCustomAttribute implements ValidationRenderer {
 
   public bind() {
     if (!this.controller) {
-      this.controller = this.controllerAccessor();
+      this.controller = this.controllerAccessor;
     }
     // this will call render() with the side-effect of updating this.errors
     this.controller.addRenderer(this);

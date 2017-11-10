@@ -55,7 +55,7 @@ var ValidationErrorsCustomAttribute = /** @class */ (function () {
     };
     ValidationErrorsCustomAttribute.prototype.bind = function () {
         if (!this.controller) {
-            this.controller = this.controllerAccessor();
+            this.controller = this.controllerAccessor;
         }
         // this will call render() with the side-effect of updating this.errors
         this.controller.addRenderer(this);

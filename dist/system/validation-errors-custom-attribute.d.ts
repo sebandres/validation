@@ -11,7 +11,7 @@ export declare class ValidationErrorsCustomAttribute implements ValidationRender
     controller: ValidationController | null;
     errors: RenderedError[];
     private errorsInternal;
-    constructor(boundaryElement: Element, controllerAccessor: () => ValidationController);
+    constructor(boundaryElement: Element, controllerAccessor: ValidationController);
     sort(): void;
     interestingElements(elements: Element[]): Element[];
     render(instruction: RenderInstruction): void;
